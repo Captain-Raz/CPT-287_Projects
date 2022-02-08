@@ -38,7 +38,7 @@ public class Date { // Still needs major formatting from Class movieManager
 
 	public String formatDate() {
 		
-		return ""; // needs formatting still
+		return String.join("/", String.valueOf(this.month), String.valueOf(this.day), String.valueOf(this.year));
 
 	}
 
