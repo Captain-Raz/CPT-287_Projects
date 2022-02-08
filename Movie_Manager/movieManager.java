@@ -30,6 +30,7 @@ public class movieManager {
 				System.out.print("Enter Movie Descriptors (e.g. Mystery Thriller): ");
 				descriptors = input.nextLine().trim().split(" ");
 				descriptions = String.join("/", descriptors);
+				String sample = "Glass, 01/18/2019, Drama/Fantasy, 01/12/2019, released";
 				
 				System.out.println("");
 				System.out.println("");
@@ -54,12 +55,14 @@ public class movieManager {
 
 	public static char menu() { // Outputs menu options and returns char choice for main
 
-		System.out.println("");
-		System.out.println("a - Add Movie Entry");
-		System.out.println("s - Output Showing Movies");
-		System.out.println("c - Output Coming Movies");
-		System.out.println("e - Edit Coming Movies");
-		System.out.println("z - Count Coming Movies");
+		System.out.println(""); // Brad edit menu and add options
+		System.out.println("d - Display all Movies");
+		System.out.println("a - Add Movie Entry"); // Zach
+		System.out.println("s - Output Showing Movies"); 
+		System.out.println("c - Output Coming Movies"); // Ben
+		System.out.println("e - Edit a Movie"); // Zach // edit release date and description
+		System.out.println("z - Count Coming Movies"); // Ben
+		System.out.println("m - Start Showing Movies in Theater"); // Ben
 		System.out.println("q - Quit"); // Movies will be autosaved when 'q' is entered and file location given
 		System.out.println("");
 		
@@ -70,7 +73,7 @@ public class movieManager {
 
 	}
 
-	public static void saveMovies(boolean state) { // Needs written
+	public static void saveMovies(boolean state) { // Zach
 
 	}
 
