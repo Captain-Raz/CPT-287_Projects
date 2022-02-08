@@ -33,5 +33,9 @@ public class Movie {
     public String getDescription() {
         return this.description;
     }
+    
+    public String formatMovie() {
+    	return "";
+    }
         
 }
