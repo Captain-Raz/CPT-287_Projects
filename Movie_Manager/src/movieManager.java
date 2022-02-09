@@ -145,7 +145,8 @@ public class movieManager {
 					System.out.println("That option was not recognize. No edits were made.");
 				}
 				skipName = "";
-			} else if (userChoice == 'z') { // Count Coming Movies
+			} else if (userChoice == 'z') { // Count Coming Movies // Author: Ben
+				System.out.println(comingMovies.length + " Movies Coming Soon");
 
 			} else if (userChoice == 'q') { // Quits and saves movies to file // Author: Zach
 				System.out.println("");
