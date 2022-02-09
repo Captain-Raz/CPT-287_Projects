@@ -1,0 +1,9 @@
+Showing:
+
+Coming:
+
+Edits:
+add - Added movie to Coming Movie List
+description - Changed Movie's Description
+releaseDate - Changed a Movie's Release Date
+showing - Moved Movie from 'Coming Movie List' to 'Showing Movie List'
