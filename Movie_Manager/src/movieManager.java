@@ -14,6 +14,7 @@ public class movieManager {
 
 	public static void main(String[] args) throws IOException, URISyntaxException { // Start main
 		
+		
 		try { // Author: Zach
 			populateArrays();
 		} catch (IOException e) {
@@ -145,8 +146,20 @@ public class movieManager {
 					System.out.println("That option was not recognize. No edits were made.");
 				}
 				skipName = "";
-			} else if (userChoice == 'z') { // Count Coming Movies // Author: Ben
+			
+			} else if (userChoice == 'd') { // displays all movies // Author: Brad
+				System.out.println();
+				System.out.println("Coming Movies: ");
+				for (Movie coming : comingMovies ) {
+					System.out.println(coming.formatMovie());}
+				System.out.println("Showing Movies: ");
+				for (Movie showing : showingMovies) {
+					System.out.println(showing.formatMovie());}
+			
+			} else if (userChoice == 'z') { // Count Coming Movies //Author: Brad
 				System.out.println(comingMovies.size() + " Movies Coming Soon");
+				
+				
 
 			} else if (userChoice == 'q') { // Quits and saves movies to file // Author: Zach
 				System.out.println("");
@@ -278,9 +291,9 @@ public class movieManager {
 			if (line.equals("Coming:") || line.equals("Showing:") || line.equals("") || !line.contains(",")) {
 				continue;
 			}
-			System.out.println(line);
+			//System.out.println(line);
 			Movie entry = new Movie(line.split(", "));
-			System.out.println(line);
+			//System.out.println(line); 
 
 			// System.out.println(entry.formatMovie());
 			if (entry.getEnumStatus().equals("RECEIVED")) {
