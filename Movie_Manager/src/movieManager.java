@@ -146,7 +146,7 @@ public class movieManager {
 				}
 				skipName = "";
 			} else if (userChoice == 'z') { // Count Coming Movies // Author: Ben
-				System.out.println(comingMovies.length + " Movies Coming Soon");
+				System.out.println(comingMovies.size() + " Movies Coming Soon");
 
 			} else if (userChoice == 'q') { // Quits and saves movies to file // Author: Zach
 				System.out.println("");
