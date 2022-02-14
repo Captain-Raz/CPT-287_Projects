@@ -159,7 +159,23 @@ public class movieManager {
 			} else if (userChoice == 'z') { // Count Coming Movies //Author: Brad
 				System.out.println(comingMovies.size() + " Movies Coming Soon");
 				
-				
+			} else if (userChoice == 'm') { //User enters date and the lists update coming and showing // Author: Ben
+				System.out.println("");
+				System.out.print("Enter New Date (e.g. 1/1/2000): ");
+				String[] userDate = input.nextLine().split("/");	
+				Date user = new Date(userDate);
+
+				if (comingMovies.size() != 0) {
+					for (Movie movie : comingMovies) {
+						if (Date.compareDates(movie.getReleaseDate(), user)) {
+							//movie.setEnumStatus(true);
+							comingMovies.remove(movie);
+							showingMovies.add(movie);
+						}
+					}
+				System.out.println("New Date: " + user);
+				}
+					
 
 			} else if (userChoice == 'q') { // Quits and saves movies to file // Author: Zach
 				System.out.println("");
