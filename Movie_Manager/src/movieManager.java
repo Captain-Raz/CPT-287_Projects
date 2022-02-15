@@ -39,7 +39,7 @@ public class movieManager {
 
 				Movie movieEntry = new Movie();
 				System.out.println(""); // Getting name
-				System.out.print("Enter Move Name: ");
+				System.out.print("Enter Movie Name: ");
 				name = input.nextLine().trim();
 
 				if (exists(name).equals("coming")) {
