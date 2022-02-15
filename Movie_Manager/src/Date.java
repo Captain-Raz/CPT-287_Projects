@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
 
-public class Date { // Still needs major formatting from Class movieManager
+public class Date { // applying the date and testing its validity
 
 	private int month;
 	private int day;
@@ -18,7 +18,6 @@ public class Date { // Still needs major formatting from Class movieManager
 
 	public Date() { // I'm assuming people will enter correct dates, but checks can be coded to make
 					// sure
-
 		this.month = -1;
 		this.day = -1;
 		this.year = -1;
@@ -33,7 +32,7 @@ public class Date { // Still needs major formatting from Class movieManager
 		this.year = Integer.parseInt(date[2]);
 		this.valid = isValid(this);
 	}
-
+	
 	public void setMonth(int month) {
 		this.month = month;
 	}
@@ -64,7 +63,7 @@ public class Date { // Still needs major formatting from Class movieManager
 
 	}
 
-	public boolean isValid(Date inQuestion) {
+	public boolean isValid(Date inQuestion) { //testing date validity
 
 		ArrayList<Integer> days31 = new ArrayList<>(Arrays.asList(1, 3, 0, 7, 8, 10, 12));
 		ArrayList<Integer> days30 = new ArrayList<>(Arrays.asList(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
@@ -83,11 +82,7 @@ public class Date { // Still needs major formatting from Class movieManager
 
 	}
 
-	public static boolean compareDates(Date entered, Date current) {
-
-		//System.out.println(entered.year > current.year);
-		//System.out.println(entered.month > current.month);
-		//System.out.println(entered.day > current.day);
+	public static boolean compareDates(Date entered, Date current) { //comparing two dates
 
 		if (entered.year > current.year) {
 			return true;
