@@ -174,7 +174,7 @@ public class movieManager {
 					System.out.println(showing.formatMovie());
 				}
 
-			} else if (userChoice == 'z') { // Count Coming Movies //Author: Brad
+			} else if (userChoice == 'z') { // Count Coming Movies //Author: Ben
 				System.out.println(comingMovies.size() + " Movies Coming Soon");
 
 			} else if (userChoice == 'm') { // User enters date and the lists update coming and showing // Author: Ben
