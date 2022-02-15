@@ -93,7 +93,7 @@ public class Date { // Still needs major formatting from Class movieManager
 			return true;
 		} else if ((entered.year == current.year) && (entered.month > current.month)) {
 			return true;
-		} else if ((entered.month == current.month) && (entered.day > current.day)) {
+		} else if ((entered.month == current.month) && (entered.day >= current.day)) {
 			return true;
 		}
 
