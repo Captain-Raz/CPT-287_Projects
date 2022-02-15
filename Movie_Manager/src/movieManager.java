@@ -166,12 +166,20 @@ public class movieManager {
 				Date user = new Date(userDate);
 
 				if (comingMovies.size() != 0) {
+					int count = 0; 
 					for (Movie movie : comingMovies) {
-						if (Date.compareDates(movie.getReleaseDate(), user)) {
-							//movie.setEnumStatus(true);
-							comingMovies.remove(movie);
+						if (Date.compareDates( user, movie.getReleaseDate())) {
 							showingMovies.add(movie);
+							movie.setEnumStatus(true);
+							movie.addChange("showing");
+							count++;
 						}
+						else {
+							break;
+						}
+					}
+					for (i = 1; i < 0; i++) {
+						comingMovies.remove(0);
 					}
 				System.out.println("New Date: " + user);
 				}
