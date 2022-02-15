@@ -9,12 +9,11 @@ public class movieManager {
 
 	static Scanner input = new Scanner(System.in);
 	static ArrayList<Movie> showingMovies = new ArrayList<Movie>(); // Stores everything as strings
-	static ArrayList<Movie> comingMovies = new ArrayList<Movie>(); // Stores everything as strings // Ben
+	static ArrayList<Movie> comingMovies = new ArrayList<Movie>(); // Stores everything as strings
 	private static String skipName;
 
 	public static void main(String[] args) throws IOException, URISyntaxException { // Start main
-		
-		
+
 		try { // Author: Zach
 			populateArrays();
 		} catch (IOException e) {
@@ -26,24 +25,25 @@ public class movieManager {
 		}
 
 		char userChoice = ' ';
-		Movie movieEntry = new Movie();
 		boolean skip = false;
 		String name;
 		String descriptions;
 
 		while (userChoice != 'q') { // Start while loop
-			
-			if (!skip) {  // Author: Zach
+
+			if (!skip) { // Author: Zach
 				userChoice = menu();
 			}
 
-			if (userChoice == 'a') { // Add movie entry  // Author: Zach
+			if (userChoice == 'a') { // Add movie entry // Author: Zach
 
+				Movie movieEntry = new Movie();
 				System.out.println(""); // Getting name
 				System.out.print("Enter Move Name: ");
 				name = input.nextLine().trim();
 
 				if (exists(name).equals("coming")) {
+
 					System.out.println(""); // Getting Descriptions
 					System.out.println("Movie exists in the Coming Movie List.");
 					System.out.print("Edit Movie Listing? (y/n) ");
@@ -56,11 +56,14 @@ public class movieManager {
 					} else {
 						userChoice = ' ';
 					}
+
 				} else if (exists(name).equals("showing")) {
+
 					System.out.println(""); // Getting Descriptions
 					System.out.println("Movie exists in the Showing Movie List.");
 					System.out.println("Cannot Edit Movies in Showing Movie List.");
 					userChoice = ' ';
+
 				} else {
 
 					System.out.println(""); // Getting Descriptions
@@ -85,7 +88,7 @@ public class movieManager {
 							movieEntry.setDescription(descriptions);
 							movieEntry.setReleaseDate(released);
 							movieEntry.setReceiveDate(received);
-							movieEntry.setEnumStatus();
+							movieEntry.setEnumStatus(false);
 							movieEntry.addChange("added");
 
 							boolean added = false;
@@ -105,9 +108,11 @@ public class movieManager {
 								comingMovies.add(movieEntry);
 							}
 						} else {
+
 							System.out.println("Received Date occured after Release Date. Movie not entered.");
 						}
 					} else {
+
 						if (releaseDate.length != 3) {
 							System.out.println("Invalid Release Date. Movie not entered.");
 						} else if (receiveDate.length != 3) {
@@ -117,21 +122,29 @@ public class movieManager {
 						}
 					}
 				}
+
 			} else if (userChoice == 's') { // Output Showing Movies // Author: Zach
+
 				for (Movie coming : showingMovies) {
 					System.out.println(coming.formatMovie());
 				}
+
 			} else if (userChoice == 'c') { // Output Coming Movies // Author: Zach
+
 				for (Movie coming : comingMovies) {
 					System.out.println(coming.formatMovie());
 				}
+
 			} else if (userChoice == 'e') { // Edit Movie // Author: Zach
+
 				name = skipName;
+
 				if (!skip) {
 					System.out.println("");
 					System.out.print("Enter Name of Movie to Edit: ");
 					name = input.nextLine();
 				}
+
 				skip = false;
 				System.out.println("");
 				System.out.print("Edit Description (d) or Edit Release Date (r): ");
@@ -146,61 +159,68 @@ public class movieManager {
 					System.out.println("That option was not recognize. No edits were made.");
 				}
 				skipName = "";
-			
+
 			} else if (userChoice == 'd') { // displays all movies // Author: Brad
+
 				System.out.println();
 				System.out.println("Coming Movies: ");
-				for (Movie coming : comingMovies ) {
-					System.out.println(coming.formatMovie());}
+				for (Movie coming : comingMovies) {
+					System.out.println(coming.formatMovie());
+				}
+
+				System.out.println();
 				System.out.println("Showing Movies: ");
 				for (Movie showing : showingMovies) {
-					System.out.println(showing.formatMovie());}
-			
+					System.out.println(showing.formatMovie());
+				}
+
 			} else if (userChoice == 'z') { // Count Coming Movies //Author: Brad
 				System.out.println(comingMovies.size() + " Movies Coming Soon");
+
+			} else if (userChoice == 'm') { // User enters date and the lists update coming and showing // Author: Ben
 				
-			} else if (userChoice == 'm') { //User enters date and the lists update coming and showing // Author: Ben
 				System.out.println("");
 				System.out.print("Enter New Date (e.g. 1/1/2000): ");
-				String[] userDate = input.nextLine().split("/");	
+				String[] userDate = input.nextLine().split("/");
 				Date user = new Date(userDate);
 
 				if (comingMovies.size() != 0) {
-					int count = 0; 
+					int count = 0;
 					for (Movie movie : comingMovies) {
-						if (Date.compareDates( user, movie.getReleaseDate())) {
+						if (Date.compareDates(user, movie.getReleaseDate())) {
 							showingMovies.add(movie);
 							movie.setEnumStatus(true);
 							movie.addChange("showing");
 							count++;
-						}
-						else {
+						} else {
 							break;
 						}
 					}
-					for (i = 1; i < 0; i++) {
+
+					for (int i = 0; i < count; i++) {
 						comingMovies.remove(0);
 					}
-				System.out.println("New Date: " + user);
 				}
-					
 
 			} else if (userChoice == 'q') { // Quits and saves movies to file // Author: Zach
+
 				System.out.println("");
 				System.out.println("Saving Movies...");
 				saveMovies();
+
 			} else {
 				System.out.println("That option was not recognized.");
 			}
 		} // End while loop
 	} // End main
-	
+
 	/**
 	 * Author: Zach
+	 * 
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	
+
 	private static void editReleaseDate(String name) { // Start editReleaseDate
 
 		for (Movie movie : comingMovies) {
@@ -224,13 +244,14 @@ public class movieManager {
 			}
 		}
 	} // End editReleaseDate
-	
+
 	/**
 	 * Author: Zach
+	 * 
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	
+
 	private static void editDescription(String name) { // Start editDescription
 
 		for (Movie movie : comingMovies) {
@@ -255,13 +276,14 @@ public class movieManager {
 			}
 		}
 	} // End editDescription
-	
+
 	/**
 	 * Author: Zach
+	 * 
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	
+
 	private static String exists(String name) { // Checks if movie is already in a list
 
 		for (Movie movie : comingMovies) {
@@ -296,13 +318,14 @@ public class movieManager {
 		return userChoice;
 
 	} // End menu
-	
+
 	/**
 	 * Author: Zach
+	 * 
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	
+
 	public static void populateArrays() throws IOException, URISyntaxException {
 
 		String line;
@@ -315,9 +338,9 @@ public class movieManager {
 			if (line.equals("Coming:") || line.equals("Showing:") || line.equals("") || !line.contains(",")) {
 				continue;
 			}
-			//System.out.println(line);
+			// System.out.println(line);
 			Movie entry = new Movie(line.split(", "));
-			//System.out.println(line); 
+			// System.out.println(line);
 
 			// System.out.println(entry.formatMovie());
 			if (entry.getEnumStatus().equals("RECEIVED")) {
@@ -327,17 +350,23 @@ public class movieManager {
 			}
 		}
 		reader.close();
+
+		System.out.println("Coming Movies added from file: " + comingMovies.size());
+		System.out.println("Showing Movies added from file: " + showingMovies.size());
+
 	} // End populateArrays
-	
+
 	/**
 	 * Author: Zach
+	 * 
 	 * @throws IOException
 	 * @throws URISyntaxException
 	 */
-	
+
 	public static void saveMovies() throws IOException, URISyntaxException {
 
 		File f = new File(path.toURI());
+
 		BufferedWriter writer = new BufferedWriter(new FileWriter(f, false));
 
 		writer.write("Showing:\n");
@@ -353,7 +382,7 @@ public class movieManager {
 			writer.write(movie.formatMovie());
 			writer.write("\n");
 		}
-		
+
 		writer.write("\nEdits:\n");
 		writer.write("add - Added movie to Coming Movie List\n");
 		writer.write("description - Changed Movie's Description\n");
@@ -362,9 +391,9 @@ public class movieManager {
 		writer.write("*** edits only appear on the entries that were edited.");
 
 		writer.close();
-		
+
 		System.out.println("");
-		System.out.println("File saved to /Movie_Manager/bin/movies.txt");
+		System.out.println("Movies saved to /Movie_Manager/bin/movies.txt");
 		System.out.println("");
 	}
 }
