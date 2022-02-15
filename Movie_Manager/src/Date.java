@@ -85,9 +85,9 @@ public class Date { // Still needs major formatting from Class movieManager
 
 	public static boolean compareDates(Date entered, Date current) {
 
-		System.out.println(entered.year > current.year);
-		System.out.println(entered.month > current.month);
-		System.out.println(entered.day > current.day);
+		//System.out.println(entered.year > current.year);
+		//System.out.println(entered.month > current.month);
+		//System.out.println(entered.day > current.day);
 
 		if (entered.year > current.year) {
 			return true;

@@ -50,8 +50,12 @@ public class Movie {
 		return this.name;
 	}
 
-	public void setEnumStatus() {
-		this.status = Status.RECEIVED;
+	public void setEnumStatus(boolean showing) {
+		if (showing) {
+			this.status = Status.RELEASED;
+		} else {
+			this.status = Status.RECEIVED;
+		}
 	}
 
 	public String getEnumStatus() {
