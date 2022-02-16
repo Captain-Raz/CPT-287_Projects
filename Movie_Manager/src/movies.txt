@@ -1,9 +1,0 @@
-Glass, 01/18/2019, Drama/Fantasy, 01/12/2019, RELEASED
-Teddy's Big Brake, 01/19/2019, Comedy/Romance, 01/13/2019, RELEASED 
-
-
-Miss Bala, 02/01/2019, Mystery/Thriller, 01/17/2019, RECEIVED
-infection, 01/27/2019, Horror/Thriller, 01/17/2019, RECEIVED
-Stars, 01/30/2019, Drama/Comedy, 01/17/2019, RECEIVED
-
-test, 01/18/2019, Drama, 01/12/2019, RECEIVED
